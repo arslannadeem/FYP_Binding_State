@@ -1,0 +1,25 @@
+1 - What is Array and How data stored in it?
+ Array is a chunck of Box and stored Data
+ Array is a chunck of memory and stored same data type
+ Array is a Block of Different Data
+
+
+2 - How many types of arrays in C++ programming?
+ 1 - Dimensional
+ 2 - Dimensional
+ Mulit-Dimensional
+ None
+
+
+3 - How to pass arrays in Functions. Pick One?
+ functionname() arrayname;
+ arrayname function();
+ functionname(arrayname);
+ None
+
+
+4 - How to Declare Multi-Dimension Array?
+ int [][] arr;
+ int [3][4]arr;
+ int arr[3][4];
+ arr[][] int;

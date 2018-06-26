@@ -1,0 +1,29 @@
+<body class="backgroung_color">
+
+  <form>
+
+    <div class="quiz_header box">
+      <br/>
+      <h2> Course Name : {{course}}</h2>
+      <h3> Topic Name : {{topic}}</h3>
+      <br/>
+    </div>
+
+    <div *ngFor="let question of quiz_data;let ind=index" class="box">
+      <br/> {{ind+1}} - {{ question.Description }}
+
+      <!-- click=SaveResult({{ind}},{{inde}}) onSelect=SaveResult(ind,inde) ngModel=results[{{ind}}]-->
+
+      <div *ngFor="let choice of question.Choices;let inde = index">
+        <div>
+          <input type="radio" name={{100+ind}} id={{inde}} (change)="SaveResult(ind,inde)" value={{index}} class="radio_css"> {{choice.Description}}
+        </div>
+      </div>
+      <br/>
+    </div>
+    <button name="something" (click)="CalculatingResult()" class="btn btn-primary" id="submit"> Submit </button>
+    <br/>
+    <br/>
+    <br/>
+  </form>
+</body>

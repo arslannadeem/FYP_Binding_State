@@ -1,0 +1,37 @@
+<body class="backgroung_color">
+    <form>
+
+        <div *ngIf="!view">
+            <br/>
+            <h1 class="result_css"> RESULTS</h1>
+
+            <div *ngFor="let question of data;let ind=index" id={{100+ind}} class="box">
+                <br/> {{ind+1}} - {{ question.Description }}
+                <div *ngFor="let choice of question.Choices;let inde = index" id={{inde}} class={{ind}}>
+                    {{inde + 1}} - {{choice.Description}}
+                </div>
+                <br/>
+            </div>
+
+            <button type="button" (click)="ShowArticles()" class="btn btn-primary"> View Result</button>
+
+            <br/>
+            <br/>
+        </div>
+
+        <div *ngIf="view" class="pre_box">
+            <br/>
+            <h1 class="result_css"> WRONG  QUESTION  DETAILS </h1>
+            
+            <div *ngFor="let descp of View_result_array;let inde = index" class="box">
+                <br/>
+                {{inde + 1}} - {{descp.Question}}
+                <br/>
+
+                <div innerHtml={{descp.Description}}></div>
+
+                <br/>
+            </div>
+        </div>
+    </form>
+</body>

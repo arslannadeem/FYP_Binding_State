@@ -1,0 +1,152 @@
+<div class="container">
+  <div class="form-container">
+    <label class="col_left_2">
+      ADD NEW QUESTION
+    </label>
+    <table class="question_css" *ngIf="!next">
+      <tr>
+        <br> </tr>
+      <tr>
+        <td>
+          <label class="col_left" for="name">Course</label>
+        </td>
+        <td class="col">
+          <angular2-multiselect [data]="course_dropdownList" [(ngModel)]="course_selectedItems" [settings]="course_dropdownSettings"
+            (onSelect)="onCourseSelect($event)" (onDeSelect)="OnCourseDeSelect($event)" (onSelectAll)="onCourseSelectAll($event)"
+            (onDeSelectAll)="onCourseDeSelectAll($event)">
+          </angular2-multiselect>
+        </td>
+      </tr>
+      <tr>
+        <br> </tr>
+      <tr>
+        <td class="col_left">Question</td>
+        <td class="col">
+          <textarea class="form-control" [(ngModel)]="question"> </textarea>
+        </td>
+      </tr>
+      <tr>
+        <br> </tr>
+      <tr>
+        <td>
+          <label class="col_left" for="name">Question Level</label>
+        </td>
+        <td class="col">
+          <angular2-multiselect [data]="level_dropdownList" [(ngModel)]="level_selectedItems" [settings]="level_dropdownSettings" (onSelect)="onLevelSelect($event)"
+            (onDeSelect)="OnLevelDeSelect($event)" (onSelectAll)="onLevelSelectAll($event)" (onDeSelectAll)="onLevelDeSelectAll($event)">
+          </angular2-multiselect>
+        </td>
+      </tr>
+      <tr>
+        <br> </tr>
+      <tr *ngFor="let choice of choices; let i = index">
+        <td class="col_left"> Option # {{i + 1}} </td>
+        <td class="col">
+          <input type="text" id="opt{{i}}" name="choice - {{choice.id}}" class="form-control">
+          <br/>
+        </td>
+        <td></td>
+        <td> </td>
+        <td>
+          <input #saveChoiceCheckBox id="saveChoiceCheckBox{{i}}" type="checkbox" [checked]="saveChoice" />
+        </td>
+
+        <td>
+          <button (click)="removeChoice(i)" class="cal_button"> - Remove -</button>
+        </td>
+      </tr>
+
+      <tr>
+        <td> </td>
+        <td>
+          <button type="button" (click)="addMoreChoices()" class="cal_button">
+            + Add More -
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <br> </tr>
+      <tr>
+        <td></td>
+        <td>
+          <button type="button" (click)="nextProceed()" class="submit_button">- Proceed To Next -</button>
+        </td>
+      </tr>
+
+      <tr>
+        <br> </tr>
+    </table>
+
+    <div *ngIf="next">
+
+      <table width="80%">
+        <tr>
+          <br> </tr>
+        <tr>
+          <td>
+            <label for="name" class="col_left">Topics</label>
+          </td>
+          <td>
+            <angular2-multiselect [data]="topics_dropdownList" [(ngModel)]="topics_selectedItems" [settings]="topics_dropdownSettings"
+              (onSelect)="onTopicSelect($event)" (onDeSelect)="OnTopicDeSelect($event)" (onSelectAll)="onTopicSelectAll($event)"
+              (onDeSelectAll)="onTopicDeSelectAll($event)">
+            </angular2-multiselect>
+          </td>
+        </tr>
+
+        <tr>
+          <br> </tr>
+        <tr>
+          <td>
+            <label for="name" class="col_left">Sub Topics</label>
+          </td>
+          <td>
+            <angular2-multiselect [data]="subtopics_dropdownList" [(ngModel)]="subtopics_selectedItems" [settings]="subtopics_dropdownSettings"
+              (onSelect)="onSubTopicSelect($event)" (onDeSelect)="OnSubTopicDeSelect($event)" (onSelectAll)="onSubTopicSelectAll($event)"
+              (onDeSelectAll)="onSubTopicDeSelectAll($event)">
+            </angular2-multiselect>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+
+          </td>
+          <td>
+            <br/>
+            <button type="button" id="next_botton" *ngIf="!showHide" (click)="nextProceed_Second()" class="submit_button"> Proceed To Next</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div *ngIf="next_second">
+
+      <table width="80%">
+        <tr>
+          <br> </tr>
+        <tr>
+          <td>
+            <label for="name" class="col_left">Headings</label>
+          </td>
+          <td>
+            <angular2-multiselect [data]="headings_dropdownList" [(ngModel)]="headings_selectedItems" [settings]="headings_dropdownSettings"
+              (onSelect)="onHeadingSelect($event)" (onDeSelect)="OnHeadingDeSelect($event)" (onSelectAll)="onHeadingSelectAll($event)"
+              (onDeSelectAll)="onHeadingDeSelectAll($event)">
+            </angular2-multiselect>
+          </td>
+        </tr>
+
+        <tr>
+          <br> </tr>
+
+        <tr>
+          <td></td>
+          <td>
+            <button type="button" (click)="Submit_Data()" class="submit_button"> Proceed To Next</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div>
+  <br/>
+  <br/>
+  <select (change)="Filter($event.target.value)" class="form-control list side">
+    <option *ngFor="let type of choiceOptions">
+      {{type.name}}
+    </option>
+  </select>
+
+  <div *ngIf="(option==0)">
+
+    <br/>
+    <br/>
+
+    <div id="web1" class="left_side form-control">
+
+      <h4> JAVATPOINT </h4>
+      <h6> Select Topic or Topics </h6>
+
+      <select id={{i}} class="form-control line" (click)="Filter_Selection(i)" *ngFor="let obj of array_of_topic2; let  i = index;">
+        <option>
+          {{obj.name}}
+        </option>
+        <option *ngFor="let obj2 of obj.data">
+          {{obj2.sub.sub_heading}}
+        </option>
+      </select>
+    </div>
+
+    <div id="web2" class="right_side form-control">
+
+      <h4> TUTORIAL POINT </h4>
+
+      <h6> Select Topic or Topics </h6>
+
+      <select id={{100+i}} class="form-control line" (click)="Filter_Selection2(i)" *ngFor="let obj of second_website2; let  i = index;">
+        <option>
+          {{obj.name}}
+        </option>
+        <option *ngFor="let obj2 of obj.sub.sub_heading">
+          {{obj2}}
+        </option>
+      </select>
+    </div>
+
+    <button name="something" (click)="AddTopic()" class="btn btn-primary button_side" id="submit"> Submit </button>
+  </div>
+  <div *ngIf="(option==1)">
+    No Operation Still
+  </div>
+</div>

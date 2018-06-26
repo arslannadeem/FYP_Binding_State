@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="formBox level-login">
+    <div class="box boxShaddow"></div>
+
+    <div class="box">
+      <span class="reg_bg"></span>
+      <h2>Register</h2>
+
+      <form #form="ngForm">
+
+        <div class="f_row">
+          <label>Name</label>
+          <input type="text" [(ngModel)]="name" name="name" class="input-field" required [ngModelOptions]="{standalone: true}">
+          <u></u>
+        </div>
+
+        <div class="f_row">
+          <label>Username</label>
+          <input type="text" [(ngModel)]="username" name="username" class="input-field" required [ngModelOptions]="{standalone: true}">
+          <u></u>
+        </div>
+
+        <div class="f_row">
+          <label>Email</label>
+          <input type="text" [(ngModel)]="email" name="email" class="input-field" required [ngModelOptions]="{standalone: true}">
+          <u></u>
+        </div>
+
+        <div class="f_row">
+          <label>Password</label>
+          <input type="password" [(ngModel)]="password" name="password" class="input-field" required [ngModelOptions]="{standalone: true}">
+          <u></u>
+        </div>
+
+        <div class="f_row">
+          <select class="form-control f_row text" [(ngModel)]="selectedType" (change)="Set($event.target.value)">
+            <option *ngFor="let tem of userType">
+              {{ tem.name }}
+            </option>
+          </select>
+          <u></u>
+        </div>
+
+        <button class="btn-large" (click)="onRegisterSubmit()">SIGN-UP</button>
+        <!-- <input type="submit" class="btn btn-primary" value="Register"> -->
+      </form>
+    </div>
+
+    <a routerLink="/login" href="#" class="regTag icon-add">
+      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        viewBox="0 0 357 357" style="enable-background:new 0 0 357 357;" xml:space="preserve">
+        <path d="M357,204H204v153h-51V204H0v-51h153V0h51v153h153V204z" />
+      </svg>
+    </a>
+
+  </div>
+</div>

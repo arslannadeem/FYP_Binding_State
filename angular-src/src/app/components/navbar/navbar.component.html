@@ -1,0 +1,50 @@
+<header class="navbar navbar-inverse navbar-fixed-top wet-asphalt">
+  <div class="container">
+    <!-- <div class="collapse navbar-collapse" id="navbar"> -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">AssessU</a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+          <a class="" [routerLink]="['/']">Home</a>
+        </li>
+        <li class="" *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+          <a class="" [routerLink]="['/dashboard']">Dashboard </a>
+        </li>
+
+        <li class="dropdown active">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages
+            <i class="icon-angle-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="" *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+              <a class="" [routerLink]="['/all-bogs']">Community </a>
+              <div class="collapse navbar-collapse">
+
+              </div>
+            </li>
+            <li>
+              <a [routerLink]="['/create-blog']">Create Blog</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="" *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+          <a class="" [routerLink]="['/profile']">Profile </a>
+        </li>
+        <li class="" *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+          <a class="" [routerLink]="['/login']">Login </a>
+        </li>
+        <li class="" *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+          <a class="" [routerLink]="['/register']">Register </a>
+        </li>
+        <li class="" *ngIf="authService.loggedIn()">
+          <a class="" (click)="onLogoutClick()" href="#"> Logout</a>
+        </li>
+      </ul>
+      <!-- </div> -->
+    </div>
+  </div>
+</header>

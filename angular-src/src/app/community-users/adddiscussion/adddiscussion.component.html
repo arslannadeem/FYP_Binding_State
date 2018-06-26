@@ -1,0 +1,23 @@
+<div class="container color-light">
+  <div class="col">
+  <p class="sm">Topic </p>
+  
+  <form>
+    <input type="text" class="txt" name="item" placeholder="Enter" [(ngModel)]="topic">
+  
+  </form>
+    <p class="sm">Question </p>
+
+    <form>
+      <input type="text" class="txt" name="item" placeholder="Enter" [(ngModel)]="question">
+
+      <input type="submit" class="btn" value="Ask Question" (click)="addquestions()">
+      
+    </form>
+<form>
+    <input type="submit" (click)="CommunityPage()" class="btn" value="Show Discussion Forum">
+</form>
+  </div>
+</div>
+<br>
+

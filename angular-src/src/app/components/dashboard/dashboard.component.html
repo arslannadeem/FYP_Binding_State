@@ -1,0 +1,132 @@
+<div *ngIf="usertype" name="candidate">
+
+  <div class="container">
+    <div *ngIf="course_List" class="formBox">
+
+      <h1 class="page-header">Courses</h1>
+
+      <br/>
+      <br/>
+      <br/>
+
+      <select (change)="onSelectCourse()" [(ngModel)]="selected_course" class="box" name="something">
+        <option value="0" label="Select One Course"></option>
+        <option *ngFor="let course of course_List" class="list form-control">
+          {{ course.Course_Name }}
+        </option>
+      </select>
+
+      <br/>
+      <br/>
+
+      <br/>
+      <br/>
+
+      <angular2-multiselect [data]="topic_dropdownList" [(ngModel)]="topic_selectedItems" [settings]="topic_dropdownSettings" (onSelect)="onTopicSelect($event)"
+        (onDeSelect)="OnTopicDeSelect($event)" (onSelectAll)="onCourseSelectAll($event)" (onDeSelectAll)="onCourseDeSelectAll($event)">
+      </angular2-multiselect>
+
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+
+      <button class="btn btn-primary" value="Start" name="something" (click)="StartQuiz()">Start Quiz</button>
+
+      <br/>
+      <br/>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div *ngIf="!usertype">
+
+    
+  <div style="background-image: url(assets/dash.jpg)" class="setting_div">
+      <!-- <img src="assets/dash.jpg" alt="Mountain View"> -->
+  <div class="setting_div">
+      <br/>
+      <br/>
+      <button id="modify_question" class=" col-8 btn btn-md animation animated-item-2 btn-primary" (click)="on_Modify($event)">Modify Questions</button>
+      <br/>
+      <br/>
+      <button id="modify_topic" class="col-8 btn btn-primary" (click)="on_Modify($event)">Modify Topics</button>
+      <br/>
+      <br/>
+      <button id="modify_course" class="btn btn-md animation animated-item-2 btn-primary" (click)="on_Modify($event)">Modify Course</button>
+      <br/>
+      <br/>
+    
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+    </div>
+  </div>
+      <!-- <section id="main-slider" class="no-margin"> -->
+          
+          <!-- <div class="carousel-inner">
+              <div class="item active" style="background-image: url(assets/bg1.jpg)">
+                  <div class="">
+                      <div class="">
+                          <div class="col-sm-12">
+                              <div class="carousel-content centered">
+                                  <h2 class="animation animated-item-1">Assess Your Skills</h2>
+                                  <h3 class="animation animated-item-2"> Let us Help You</h3>
+                                  <a class="btn btn-md animation animated-item-2 btn-primary" [routerLink]="['/dashboard']" href="#">Start Quiz</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>   -->
+      <!-- </section> -->
+    <!-- <div style="background:url(assets/bg1.jpg) no-repeat;height:100% ;width:100%">
+
+    </div> -->
+    <!-- <div class="">
+        <div class="item active" style="background-image: url(assets/bg1.jpg)">
+          <div class="">
+              <div class="row">
+                  <div class="col-sm-12">
+                      <div class="carousel-content centered">
+                          <h2 class="animation animated-item-1">Assess Your Skills</h2>
+                          <h3 class="animation animated-item-2"> Let us Help You</h3>
+                          <a class="btn btn-md animation animated-item-2 btn-primary" [routerLink]="['/dashboard']" href="#">Start Quiz</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div> -->
+      <!-- <div class="carousel-inner">
+          <div class="item active" style="background-image: url(assets/bg1.jpg)">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-sm-12">
+                          <div class="carousel-content centered">
+                              <h2 class="animation animated-item-1">Assess Your Skills</h2>
+                              <h3 class="animation animated-item-2"> Let us Help You</h3>
+                              <a class="btn btn-md animation animated-item-2 btn-primary" [routerLink]="['/dashboard']" href="#">Start Quiz</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>  -->
+
+    <!-- <div class="carousel-content centered">
+                        <button id="modify_question" class="btn btn-md animation animated-item-2 btn-primary" (click)="on_Modify($event)">Modify Questions</button>
+                        <button id="modify_topic" class="btn btn-md animation animated-item-2 btn-primary" (click)="on_Modify($event)">Modify Topics</button>
+                        <button id="modify_course" class="btn btn-md animation animated-item-2 btn-primary" (click)="on_Modify($event)">Modify Course</button>
+                    </div> -->
+  </div>
+</div>
